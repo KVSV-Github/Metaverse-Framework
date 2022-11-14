@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "RVov6r7MStkSLLt00R22q/cEKdZluY+U2m6O/wzhNsH/K2RozDX2jMyFG0OAMsT7pwQ9kjTQmFBahph/8Une8w==",
+  "dgSpecHash": "m2/t/U6x9vnJGHx8dOklSJuNmZ8cSwsT8QBY5GdQeVbxvuG9ACYbaVucgvDf+4RImRKYGB5wNegq4s/aCQTsQw==",
   "success": true,
-  "projectFilePath": "/home/runner/VRProject/VRProject.csproj",
+  "projectFilePath": "C:\\Users\\Robert\\source\\repos\\VRProject\\VRProject\\VRProject.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

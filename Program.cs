@@ -12,9 +12,10 @@ namespace KVSV.VRProject
         {
             World world1 = new();
             Entity cube = world1.CreateEntity();
+            Transform test = new();
             cube.AddComponent(new Transform());
             cube.GetComponent(typeof(Transform));
-            //Logger.Log("Test");
+            Logger.Log("Test");
         }
     }
 }

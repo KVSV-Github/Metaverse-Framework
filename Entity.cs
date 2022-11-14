@@ -7,31 +7,27 @@ namespace KVSV.Metaverse
     public class Entity
     {
         public Guid Id { get; }
-        public HashSet<IComponent> Components { get; set; }
+        public Dictionary<Type, IComponent> Components { get; set; }
 
         public Entity() {
             Id = Guid.NewGuid();
+            Components = new Dictionary<Type, IComponent>();
         }
 
         public IComponent AddComponent(IComponent component) {
-            bool added = Components.Add(component);
-            if(added) {
+            try
+            {
+                Components.Add(component.GetType(), component);
                 return component;
             }
-            else {
-                IComponent existing;
-                if(Components.TryGetValue(component, out existing)) {
-                    return existing;
-                }
-                else {
-                    //throw new Exception();
-                }
-                return null;
+            catch(ArgumentException)
+            {
+                return GetComponent(component.GetType());
             }
         }
 
         public bool RemoveComponent(IComponent component) {
-            return Components.Remove(component);
+            return Components.Remove(component.GetType());
         }
 
         public IComponent GetComponent(Type ComponentType) {
