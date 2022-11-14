@@ -1,11 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "owaqU8XDsd3xo1Vt6aQqiqtnyA08Yko96ImB2R1kU44PQ2dUom31PWae165wGqnbTGbJkcZMQj0s9KFdaPr8SA==",
+  "dgSpecHash": "RVov6r7MStkSLLt00R22q/cEKdZluY+U2m6O/wzhNsH/K2RozDX2jMyFG0OAMsT7pwQ9kjTQmFBahph/8Une8w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Robert\\source\\repos\\VRProject\\VRProject\\VRProject.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\Robert\\.nuget\\packages\\stereokit\\0.3.6\\stereokit.0.3.6.nupkg.sha512",
-    "C:\\Users\\Robert\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512"
-  ],
+  "projectFilePath": "/home/runner/VRProject/VRProject.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }

@@ -1,207 +1,31 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {
-      "StereoKit/0.3.6": {
-        "type": "package",
-        "dependencies": {
-          "System.Numerics.Vectors": "4.5.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/StereoKit.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/StereoKit.dll": {}
-        },
-        "build": {
-          "build/StereoKit.targets": {}
-        },
-        "runtimeTargets": {
-          "runtimes/android-arm64-v8a/native/StereoKitC.sym": {
-            "assetType": "native",
-            "rid": "android-arm64-v8a"
-          },
-          "runtimes/android-arm64-v8a/native/libStereoKitC.so": {
-            "assetType": "native",
-            "rid": "android-arm64-v8a"
-          },
-          "runtimes/android-arm64-v8a/native/libopenxr_loader.so": {
-            "assetType": "native",
-            "rid": "android-arm64-v8a"
-          },
-          "runtimes/linux-arm64/native/StereoKitC.sym": {
-            "assetType": "native",
-            "rid": "linux-arm64"
-          },
-          "runtimes/linux-arm64/native/libStereoKitC.so": {
-            "assetType": "native",
-            "rid": "linux-arm64"
-          },
-          "runtimes/linux-x64/native/StereoKitC.sym": {
-            "assetType": "native",
-            "rid": "linux-x64"
-          },
-          "runtimes/linux-x64/native/libStereoKitC.so": {
-            "assetType": "native",
-            "rid": "linux-x64"
-          },
-          "runtimes/win-x64/native/StereoKitC.dll": {
-            "assetType": "native",
-            "rid": "win-x64"
-          },
-          "runtimes/win-x64/native/StereoKitC.pdb": {
-            "assetType": "native",
-            "rid": "win-x64"
-          },
-          "runtimes/win10-arm/native/StereoKitC.dll": {
-            "assetType": "native",
-            "rid": "win10-arm"
-          },
-          "runtimes/win10-arm/native/StereoKitC.pdb": {
-            "assetType": "native",
-            "rid": "win10-arm"
-          },
-          "runtimes/win10-arm64/native/StereoKitC.dll": {
-            "assetType": "native",
-            "rid": "win10-arm64"
-          },
-          "runtimes/win10-arm64/native/StereoKitC.pdb": {
-            "assetType": "native",
-            "rid": "win10-arm64"
-          },
-          "runtimes/win10-x64/native/StereoKitC.dll": {
-            "assetType": "native",
-            "rid": "win10-x64"
-          },
-          "runtimes/win10-x64/native/StereoKitC.pdb": {
-            "assetType": "native",
-            "rid": "win10-x64"
-          }
-        }
-      },
-      "System.Numerics.Vectors/4.5.0": {
-        "type": "package",
-        "compile": {
-          "ref/netcoreapp2.0/_._": {}
-        },
-        "runtime": {
-          "lib/netcoreapp2.0/_._": {}
-        }
-      }
-    }
+    "net6.0": {}
   },
-  "libraries": {
-    "StereoKit/0.3.6": {
-      "sha512": "UQXrV5+AzawAA5ou7mvxQ7awCuIe7tnjpy7Y03mpIHOxRqwbXD3JRCt1BA/Y9vOC21ZLnDo233eA6dODn7v1wg==",
-      "type": "package",
-      "path": "stereokit/0.3.6",
-      "hasTools": true,
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "build/SKShader.xml",
-        "build/SKShaders.targets",
-        "build/StereoKit.targets",
-        "images/StereoKitLogo64.png",
-        "lib/netstandard2.0/StereoKit.dll",
-        "lib/netstandard2.0/StereoKit.pdb",
-        "lib/netstandard2.0/StereoKit.xml",
-        "runtimes/android-arm64-v8a/native/StereoKitC.sym",
-        "runtimes/android-arm64-v8a/native/libStereoKitC.so",
-        "runtimes/android-arm64-v8a/native/libopenxr_loader.so",
-        "runtimes/linux-arm64/native/StereoKitC.sym",
-        "runtimes/linux-arm64/native/libStereoKitC.so",
-        "runtimes/linux-x64/native/StereoKitC.sym",
-        "runtimes/linux-x64/native/libStereoKitC.so",
-        "runtimes/win-x64/native/StereoKitC.dll",
-        "runtimes/win-x64/native/StereoKitC.pdb",
-        "runtimes/win10-arm/native/StereoKitC.dll",
-        "runtimes/win10-arm/native/StereoKitC.pdb",
-        "runtimes/win10-arm64/native/StereoKitC.dll",
-        "runtimes/win10-arm64/native/StereoKitC.pdb",
-        "runtimes/win10-x64/native/StereoKitC.dll",
-        "runtimes/win10-x64/native/StereoKitC.pdb",
-        "stereokit.0.3.6.nupkg.sha512",
-        "stereokit.nuspec",
-        "tools/include/stereokit.hlsli",
-        "tools/skshaderc",
-        "tools/skshaderc.exe"
-      ]
-    },
-    "System.Numerics.Vectors/4.5.0": {
-      "sha512": "QQTlPTl06J/iiDbJCiepZ4H//BVraReU4O4EoRw1U02H5TLUIT7xn3GnDp9AXPSlJUDyFs4uWjWafNX6WrAojQ==",
-      "type": "package",
-      "path": "system.numerics.vectors/4.5.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE.TXT",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/MonoAndroid10/_._",
-        "lib/MonoTouch10/_._",
-        "lib/net46/System.Numerics.Vectors.dll",
-        "lib/net46/System.Numerics.Vectors.xml",
-        "lib/netcoreapp2.0/_._",
-        "lib/netstandard1.0/System.Numerics.Vectors.dll",
-        "lib/netstandard1.0/System.Numerics.Vectors.xml",
-        "lib/netstandard2.0/System.Numerics.Vectors.dll",
-        "lib/netstandard2.0/System.Numerics.Vectors.xml",
-        "lib/portable-net45+win8+wp8+wpa81/System.Numerics.Vectors.dll",
-        "lib/portable-net45+win8+wp8+wpa81/System.Numerics.Vectors.xml",
-        "lib/uap10.0.16299/_._",
-        "lib/xamarinios10/_._",
-        "lib/xamarinmac20/_._",
-        "lib/xamarintvos10/_._",
-        "lib/xamarinwatchos10/_._",
-        "ref/MonoAndroid10/_._",
-        "ref/MonoTouch10/_._",
-        "ref/net45/System.Numerics.Vectors.dll",
-        "ref/net45/System.Numerics.Vectors.xml",
-        "ref/net46/System.Numerics.Vectors.dll",
-        "ref/net46/System.Numerics.Vectors.xml",
-        "ref/netcoreapp2.0/_._",
-        "ref/netstandard1.0/System.Numerics.Vectors.dll",
-        "ref/netstandard1.0/System.Numerics.Vectors.xml",
-        "ref/netstandard2.0/System.Numerics.Vectors.dll",
-        "ref/netstandard2.0/System.Numerics.Vectors.xml",
-        "ref/uap10.0.16299/_._",
-        "ref/xamarinios10/_._",
-        "ref/xamarinmac20/_._",
-        "ref/xamarintvos10/_._",
-        "ref/xamarinwatchos10/_._",
-        "system.numerics.vectors.4.5.0.nupkg.sha512",
-        "system.numerics.vectors.nuspec",
-        "useSharedDesignerContext.txt",
-        "version.txt"
-      ]
-    }
-  },
+  "libraries": {},
   "projectFileDependencyGroups": {
-    "net6.0": [
-      "StereoKit >= 0.3.*"
-    ]
+    "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Robert\\.nuget\\packages\\": {}
+    "/home/runner/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Robert\\source\\repos\\VRProject\\VRProject\\VRProject.csproj",
+      "projectUniqueName": "/home/runner/VRProject/VRProject.csproj",
       "projectName": "VRProject",
-      "projectPath": "C:\\Users\\Robert\\source\\repos\\VRProject\\VRProject\\VRProject.csproj",
-      "packagesPath": "C:\\Users\\Robert\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Robert\\source\\repos\\VRProject\\VRProject\\obj\\",
+      "projectPath": "/home/runner/VRProject/VRProject.csproj",
+      "packagesPath": "/home/runner/.nuget/packages/",
+      "outputPath": "/home/runner/VRProject/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Robert\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/home/runner/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -219,12 +43,6 @@
     "frameworks": {
       "net6.0": {
         "targetAlias": "net6.0",
-        "dependencies": {
-          "StereoKit": {
-            "target": "Package",
-            "version": "[0.3.*, )"
-          }
-        },
         "imports": [
           "net461",
           "net462",
@@ -240,7 +58,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/nix/store/jsm5am5i2b2izvwzbw5h6lk3plvpkrlw-dotnet-sdk-6.0.100/sdk/6.0.100/RuntimeIdentifierGraph.json"
       }
     }
   }

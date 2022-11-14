@@ -1,28 +1,17 @@
-﻿using StereoKit;
-
-namespace VRProject
+namespace KVSV.Metaverse
 {
     public interface IComponent { }
+}
 
-    public struct TransformComponent : IComponent
-    {
-        public Matrix transform;
+namespace KVSV.Metaverse.DefaultComponents {
+    
+    public class Transform : IComponent {
+        public Vector3 Position { get; set; }
+        public Vector3 Rotation { get; set; }
+        public Vector3 Scale { get; set; }
     }
 
-    public struct ModelComponent : IComponent
-    {
-        public Mesh mesh;
-        public Material material;
-    }
-
-    public struct GrabbableComponent : IComponent
-    {
-        public float maxGrabDistance;
-    }
-
-    public struct SoundComponent : IComponent
-    {
-        public string soundFile;
-        public float volume;
+    public class MeshRenderer : IComponent {
+        public string test { get; set; }
     }
 }
