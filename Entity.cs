@@ -7,13 +7,17 @@ namespace KVSV.Metaverse
     public class Entity
     {
         public Guid Id { get; }
-        public Dictionary<Type, IComponent> Components { get; set; }
+        private Dictionary<Type, IComponent> Components = new();
 
-        public Entity() {
-            Id = Guid.NewGuid();
-            Components = new Dictionary<Type, IComponent>();
+        public Entity(List<IComponent> components) {
+            Id = new();
+            foreach(IComponent c in components) {
+                Components.Add(c.GetType(), c);
+            }
         }
 
+        // Archetypes solve need for this
+        /*
         public IComponent AddComponent(IComponent component) {
             try
             {
@@ -34,6 +38,6 @@ namespace KVSV.Metaverse
             IComponent c;
             Components.TryGetValue(ComponentType, out c);
             return c;
-        }
+        }*/
     }
 }

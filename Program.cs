@@ -11,11 +11,12 @@ namespace KVSV.VRProject
         static void Main(string[] args)
         {
             World world1 = new();
-            Entity cube = world1.CreateEntity();
-            Transform test = new();
-            cube.AddComponent(new Transform());
-            cube.GetComponent(typeof(Transform));
-            Logger.Log("Test");
+            Entity cube = world1.CreateEntity(new List<IComponent> {new Transform(), new MeshRenderer()});
+            List<Entity> eList = world1.GetEntities(new List<Type> {typeof(Transform), typeof(MeshRenderer)});
+            foreach(Entity entity in eList) {
+                Console.WriteLine(entity.Id);
+            }
+            //Logger.Log("Test");
         }
     }
 }
