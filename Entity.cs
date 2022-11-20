@@ -17,7 +17,7 @@ namespace KVSV.Metaverse
         }
 
         // Archetypes solve need for this
-        /*
+        
         public IComponent AddComponent(IComponent component) {
             try
             {
@@ -34,10 +34,10 @@ namespace KVSV.Metaverse
             return Components.Remove(component.GetType());
         }
 
-        public IComponent GetComponent(Type ComponentType) {
+        public IComponent GetComponent(Type componentType) {
             IComponent c;
-            Components.TryGetValue(ComponentType, out c);
+            Components.TryGetValue(componentType, out c);
             return c;
-        }*/
+        }
     }
 }

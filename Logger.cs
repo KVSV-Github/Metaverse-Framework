@@ -22,10 +22,10 @@ namespace KVSV.Debug {
             try {
                 logString = File.ReadAllText(logPath) + logString;
             }
-            catch(FileNotFoundException e) {
+            catch(FileNotFoundException) {
                 
             }
-            catch(DirectoryNotFoundException e) {
+            catch(DirectoryNotFoundException) {
                 
             }
             File.WriteAllText(logPath, logString);

@@ -25,5 +25,8 @@ namespace KVSV.Metaverse
         {
             return new Vector3(x / Magnitude(), y / Magnitude(), z / Magnitude());
         }
+
+        public override string ToString() => $"X:{x} Y:{y} Z:{z}";
+        public static Vector3 operator +(Vector3 a, Vector3 b) => new Vector3(a.x+b.x, a.y+b.y, a.z+b.z);
     }
 }

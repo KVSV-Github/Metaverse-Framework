@@ -12,10 +12,10 @@ namespace KVSV.VRProject
         {
             World world1 = new();
             Entity cube = world1.CreateEntity(new List<IComponent> {new Transform(), new MeshRenderer()});
-            List<Entity> eList = world1.GetEntities(new List<Type> {typeof(Transform), typeof(MeshRenderer)});
-            foreach(Entity entity in eList) {
-                Console.WriteLine(entity.Id);
-            }
+            Transform t = (Transform)cube.GetComponent(typeof(Transform));
+            t.Position = new Vector3(5,25,10);
+            //Console.WriteLine(t.Position);
+            Console.WriteLine(t.Scale);
             //Logger.Log("Test");
         }
     }
