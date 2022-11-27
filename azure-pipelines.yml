@@ -29,16 +29,6 @@ steps:
   
   - task: DotNetCoreCLI@2
     inputs:
-      command: 'pack'
-      packagesToPack: '**/*.csproj'
-      nobuild: true
-      versioningScheme: byPrereleaseNumber
-      majorVersion: '$(Major)'
-      minorVersion: '$(Minor)'
-      patchVersion: '$(Patch)'
-  
-  - task: DotNetCoreCLI@2
-    inputs:
       command: 'push'
       packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
       nuGetFeedType: 'external'
