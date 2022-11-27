@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "RVov6r7MStkSLLt00R22q/cEKdZluY+U2m6O/wzhNsH/K2RozDX2jMyFG0OAMsT7pwQ9kjTQmFBahph/8Une8w==",
+  "dgSpecHash": "dnFbTb1pMGB3jg+JQSMMCGYnOWpk9iKTaxTxCXD+UB6uw8qu3V86KNuNmiG7a7++H1y1Chwo1+UK/gSaAvOmuA==",
   "success": true,
   "projectFilePath": "/home/runner/VRProject/VRProject.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/home/runner/.nuget/packages/keralua/1.3.1/keralua.1.3.1.nupkg.sha512",
+    "/home/runner/.nuget/packages/nlua/1.6.0/nlua.1.6.0.nupkg.sha512"
+  ],
   "logs": []
 }
