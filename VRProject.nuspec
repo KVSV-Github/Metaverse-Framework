@@ -4,7 +4,7 @@
     <id>$id$</id>
     <version>$version$</version>
     <title>$title$</title>
-    <authors>$author$</authors>
+    <authors>robertkvasov</authors>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <licenseUrl>https://github.com/KVSV-Github/VRProject/blob/main/LICENCE.txt</licenseUrl>
     <!-- <icon>icon.png</icon> -->
