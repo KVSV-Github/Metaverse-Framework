@@ -9,11 +9,6 @@ trigger:
 pool:
   vmImage: windows-latest
 
-variables:
-  Major: '1'
-  Minor: '0'
-  Patch: '1'
-
 steps:
   - task: DotNetCoreCLI@2
     inputs:
@@ -21,6 +16,12 @@ steps:
       projects: '**/*.csproj'
       feedsToUse: 'select'
   
+  - task: DotNetCoreCLI@2
+    inputs:
+      command: 'build'
+      projects: '**/*.csproj'
+      arguments: '--configuration $(BuildConfiguration)'
+
   - task: NuGetCommand@2
     inputs:
       command: 'pack'
