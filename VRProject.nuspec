@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <license type="expression">GNU GPLv3</license>
+    <!-- <icon>icon.png</icon> -->
+    <projectUrl>https://github.com/KVSV-Github/VRProject/</projectUrl>
+    <description>$description$</description>
+    <releaseNotes>Initial commit</releaseNotes>
+    <copyright>$copyright$</copyright>
+    <tags>metaverse</tags>
+  </metadata>
+</package>

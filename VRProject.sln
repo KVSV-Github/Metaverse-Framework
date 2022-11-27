@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33110.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VRProject", "VRProject.csproj", "{FBD0FD1B-0268-4CCE-BF45-4A78D5E0B8DE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FBD0FD1B-0268-4CCE-BF45-4A78D5E0B8DE}.Debug|Any CPU.ActiveCfg = Release|Any CPU
+		{FBD0FD1B-0268-4CCE-BF45-4A78D5E0B8DE}.Debug|Any CPU.Build.0 = Release|Any CPU
+		{FBD0FD1B-0268-4CCE-BF45-4A78D5E0B8DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBD0FD1B-0268-4CCE-BF45-4A78D5E0B8DE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3BFA144F-6A48-4494-ADD2-BCC083AAD9D1}
+	EndGlobalSection
+EndGlobal
