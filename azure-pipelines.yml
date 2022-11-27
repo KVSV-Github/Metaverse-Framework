@@ -20,13 +20,12 @@ steps:
     inputs:
       command: 'build'
       projects: '**/*.csproj'
-      arguments: '--configuration Release'
+      arguments: '--configuration Debug'
 
   - task: NuGetCommand@2
     inputs:
       command: 'pack'
       packagesToPack: '**/*.csproj'
-      arguments: '--configuration Release'
       versioningScheme: 'byPrereleaseNumber'
       majorVersion: '1'
       minorVersion: '0'
