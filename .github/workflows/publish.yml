@@ -8,13 +8,9 @@ jobs:
     name: build, pack and publish
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: publish on version change
-        id: publish_nuget
-        uses: brandedoutcast/publish-nuget@v2
-        with:
-          PROJECT_FILE_PATH: VRProject.csproj
-          BUILD_PLATFORM: x64
-          PACKAGE_NAME: Metaverse
-          VERSION_STATIC: 1.0.1
-          NUGET_KEY: ${{secrets.NUGET_API_KEY}}
+      - name: build
+        run: dotnet build -c Release
+      - name: pack
+        run: dotnet pack -c Release --property:Version=1.0.1
+      - name: publish
+        run: dotnet nuget push *.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
