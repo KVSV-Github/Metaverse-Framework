@@ -1,18 +1,36 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <TargetFramework>net6.0</TargetFramework>
+    <RootNamespace>KVSV.Metaverse</RootNamespace>
+    <AssemblyName>Metaverse</AssemblyName>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>Metaverse</Title>
+    <Authors>robertkvasov</Authors>
+    <Description>Robert Kvasov's Metaverse framework</Description>
+    <Copyright>GNU GPLv3</Copyright>
+    <PackageProjectUrl>https://github.com/KVSV-Github/VRProject</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/KVSV-Github/VRProject</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <NeutralLanguage>en-GB</NeutralLanguage>
+    <PackageLicenseFile>LICENCE.txt</PackageLicenseFile>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="Assets\**">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <Compile Remove="Program.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="NLua" Version="1.6.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="LICENCE.txt">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
