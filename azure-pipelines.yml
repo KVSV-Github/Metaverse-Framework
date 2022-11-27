@@ -23,9 +23,12 @@ steps:
       
   - task: DotNetCoreCLI@2
     inputs:
-      command: 'build'
-      projects: '**/*.csproj'
-      arguments: '--configuration $(BuildConfiguration)'
+      command: 'pack'
+      packagesToPack: '**/*.csproj'
+      versioningScheme: 'byPrereleaseNumber'
+      majorVersion: '1'
+      minorVersion: '0'
+      patchVersion: '1'
   
   - task: NuGetCommand@2
     inputs:
