@@ -11,5 +11,9 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="NLua" Version="1.6.0" />
+  </ItemGroup>
+
 </Project>
 

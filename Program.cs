@@ -11,12 +11,12 @@ namespace KVSV.VRProject
         static void Main(string[] args)
         {
             World world1 = new();
+            
             Entity cube = world1.CreateEntity(new List<IComponent> {new Transform(), new MeshRenderer()});
-            Transform t = (Transform)cube.GetComponent(typeof(Transform));
-            t.Position = new Vector3(5,25,10);
-            //Console.WriteLine(t.Position);
-            Console.WriteLine(t.Scale);
-            //Logger.Log("Test");
+
+            for(int x=1; x<=10; x++) {
+                world1.Update(-1);
+            }
         }
     }
 }
