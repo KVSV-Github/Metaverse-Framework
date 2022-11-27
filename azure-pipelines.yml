@@ -26,6 +26,7 @@ steps:
     inputs:
       command: 'pack'
       packagesToPack: '**/*.csproj'
+      arguments: '--configuration Release'
       versioningScheme: 'byPrereleaseNumber'
       majorVersion: '1'
       minorVersion: '0'
