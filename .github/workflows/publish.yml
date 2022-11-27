@@ -12,8 +12,6 @@ jobs:
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: '6.0.x'
-      - name: Add nuget.org as nuget package source
-        run: dotnet nuget add source https://api.nuget.org/v3/index.json --name nuget.org
       - name: build
         run: dotnet build VRProject.csproj -c Release
       - name: pack
