@@ -6,7 +6,7 @@
     <title>$title$</title>
     <authors>$author$</authors>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
-    <license type="expression">GNU GPLv3</license>
+    <licenseUrl>https://github.com/KVSV-Github/VRProject/blob/main/LICENCE.txt</licenseUrl>
     <!-- <icon>icon.png</icon> -->
     <projectUrl>https://github.com/KVSV-Github/VRProject/</projectUrl>
     <description>$description$</description>
