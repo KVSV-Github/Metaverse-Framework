@@ -11,9 +11,9 @@ namespace KVSV.Metaverse.DefaultComponents {
         public Vector3 Scale { get; set; }
 
         public Transform() {
-            Position = new();
-            Rotation = new();
-            Scale = new(1,1,1);
+            Position = new Vector3();
+            Rotation = new Vector3();
+            Scale = new Vector3(1,1,1);
         }
     }
 

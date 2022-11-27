@@ -7,10 +7,10 @@ namespace KVSV.Metaverse
     public class Entity
     {
         public Guid Id { get; }
-        private Dictionary<Type, IComponent> Components = new();
+        private Dictionary<Type, IComponent> Components = new Dictionary<Type, IComponent>();
 
         public Entity(List<IComponent> components) {
-            Id = new();
+            Id = Guid.NewGuid();
             foreach(IComponent c in components) {
                 Components.Add(c.GetType(), c);
             }

@@ -5,9 +5,9 @@ using System.Collections.Generic;
 namespace KVSV.Metaverse
 {
     public class World {
-        public Dictionary<Guid, Entity> Entities = new();
+        public Dictionary<Guid, Entity> Entities = new Dictionary<Guid, Entity>();
 
-        private List<Script> scripts = new();
+        private List<Script> scripts = new List<Script>();
         private const string scriptsPath = "Scripts";
     
         public World() {
@@ -15,7 +15,7 @@ namespace KVSV.Metaverse
         }
         
         public Entity CreateEntity(List<IComponent> components) {
-            Entity e = new(components);
+            Entity e = new Entity(components);
             Entities.Add(e.Id, e);
 
             return e;
@@ -32,10 +32,10 @@ namespace KVSV.Metaverse
         }
 
         private void ScanScripts() {
-            DirectoryInfo d = new(scriptsPath);
+            DirectoryInfo d = new DirectoryInfo(scriptsPath);
             foreach(var file in d.GetFiles("*.lua")) {
                 Console.WriteLine(file.FullName);
-                Script s = new(file.FullName);
+                Script s = new Script(file.FullName);
                 scripts.Add(s);
             }
         }

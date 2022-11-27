@@ -10,8 +10,8 @@ namespace KVSV.Metaverse
     {
         private LuaFunction update;
         private LuaFunction start;
-        
-        Lua state = new();
+
+        Lua state = new Lua();
         string code;
         
         public Script(string scriptPath) {
