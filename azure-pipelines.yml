@@ -20,8 +20,8 @@ steps:
       command: 'restore'
       projects: '**/*.csproj'
       feedsToUse: 'select'
-      
-  - task: DotNetCoreCLI@2
+  
+  - task: NuGetCommand@2
     inputs:
       command: 'pack'
       packagesToPack: '**/*.csproj'
