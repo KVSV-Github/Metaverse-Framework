@@ -9,7 +9,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: build
-        run: dotnet build -c Release
+        run: dotnet build VRProject.csproj -c Release
       - name: pack
         run: dotnet pack -c Release --property:Version=1.0.1
       - name: publish
