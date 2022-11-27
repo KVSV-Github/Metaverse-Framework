@@ -10,10 +10,10 @@ pool:
   vmImage: windows-latest
 
 steps:
-  - task: DotNetCoreCLI@2
+  - task: NuGetCommand@2
     inputs:
       command: 'restore'
-      projects: '**/*.csproj'
+      restoreSolution: '**/*.sln'
       feedsToUse: 'select'
   
   - task: DotNetCoreCLI@2
@@ -22,7 +22,7 @@ steps:
       projects: '**/*.csproj'
       arguments: '--configuration Debug'
 
-  - task: NuGetCommand@2
+  - task: DotNetCoreCLI@2
     inputs:
       command: 'pack'
       packagesToPack: '**/*.csproj'
