@@ -18,15 +18,17 @@ jobs:
         with:
           fetch-depth: 0
         
-      - name: Conventional Commits SemVer setup
-        uses: tomerfi/version-bumper-action@1.2.1
-        id: bumper
+      - name: Conventional commits changelog
+        uses: TriPSs/conventional-changelog-action@v3
+        id: semver
+        with:
+          github-token: ${{ secrets.github_token }}
           
       - name: build
         run: dotnet build -c Release
         
       - name: pack
-        run: dotnet pack -c Release --property:Version=${{ steps.bumper.outputs.new_version }}
+        run: dotnet pack -c Release --property:Version=${{ steps.semver.outputs.version }}
         
       - name: publish
         run: dotnet nuget push **/*.nupkg -n -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
