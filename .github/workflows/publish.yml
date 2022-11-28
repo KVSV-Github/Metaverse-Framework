@@ -25,9 +25,9 @@ jobs:
         run: dotnet build -c Release
         
       - name: pack
-        if: ${{ steps.semver.outputs.released == 'true' }}
+        #if: ${{ steps.semver.outputs.released == 'true' }}
         run: dotnet pack -c Release --property:Version=${{ steps.semver.outputs.version }}
         
       - name: publish
-        if: ${{ steps.semver.outputs.released == 'true' }}
+        #if: ${{ steps.semver.outputs.released == 'true' }}
         run: dotnet nuget push **/*.nupkg -n -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
