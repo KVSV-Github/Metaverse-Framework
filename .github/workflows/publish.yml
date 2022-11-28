@@ -20,9 +20,9 @@ jobs:
         
       - name: Conventional commits changelog
         uses: TriPSs/conventional-changelog-action@v3
+        id: changelog
         with:
           github-token: ${{ secrets.github_token }}
-          id: changelog
           
       - name: build
         run: dotnet build -c Release
