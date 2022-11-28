@@ -15,16 +15,18 @@ jobs:
           
       - name: checkout repo
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
         
       - name: Conventional Commits SemVer setup
-        uses: arwynfr/actions-conventional-versioning/get-newVersion@0.3.0
-        id: next-version
+        uses: tomerfi/version-bumper-action@1.2.1
+        id: bumper
           
       - name: build
         run: dotnet build -c Release
         
       - name: pack
-        run: dotnet pack -c Release --property:Version=${{ steps.next-version.output.next-version }}
+        run: dotnet pack -c Release --property:Version=${{ steps.bumper.outputs.new_version }}
         
       - name: publish
         run: dotnet nuget push **/*.nupkg -n -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
