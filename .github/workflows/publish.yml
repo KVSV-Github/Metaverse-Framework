@@ -12,11 +12,22 @@ jobs:
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: '6.0.x'
+          
       - name: checkout repo
         uses: actions/checkout@v3
+        
+      - name: Conventional Commits SemVer setup
+        uses: grumpy-programmer/conventional-commits-semver-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
       - name: build
         run: dotnet build -c Release
+        
       - name: pack
-        run: dotnet pack -c Release --property:Version=1.0.1
+        if: ${{ steps.semver.outputs.released == 'true' }}
+        run: dotnet pack -c Release --property:Version=${{ steps.semver.outputs.version }}
+        
       - name: publish
+        if: ${{ steps.semver.outputs.released == 'true' }}
         run: dotnet nuget push **/*.nupkg -n -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
