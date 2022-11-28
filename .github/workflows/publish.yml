@@ -20,7 +20,7 @@ jobs:
         
       - name: Conventional commits changelog
         uses: TriPSs/conventional-changelog-action@v3
-        id: changelog
+        id: semver
         with:
           github-token: ${{ secrets.github_token }}
           
@@ -28,7 +28,7 @@ jobs:
         run: dotnet build -c Release
         
       - name: pack
-        run: dotnet pack -c Release --property:Version=${{ steps.changelog.outputs.version }}
+        run: dotnet pack -c Release --property:Version=${{ steps.semver.outputs.version }}
         
       - name: publish
         run: dotnet nuget push **/*.nupkg -n -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
