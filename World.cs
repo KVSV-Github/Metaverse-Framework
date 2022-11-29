@@ -14,7 +14,7 @@ namespace KVSV.Metaverse
             ScanScripts();
         }
         
-        public Entity CreateEntity(List<IComponent> components) {
+        public Entity CreateEntity(List<Component> components) {
             Entity e = new(components);
             Entities.Add(e.Id, e);
 
