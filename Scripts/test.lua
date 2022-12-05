@@ -1,8 +1,10 @@
 function Start()
-    x = Vector3(0, 0, 0)
+    x = Components.Transform
+    x = x.Position
+    --x.Position = Vector3(7, 7, 7)
 end
 
 function Update()
-    x = x + Vector3(1, 1, 1)
-    print(x)
+    x = Vector3()
+    x = x + Vector3(0, 1, 0)
 end
