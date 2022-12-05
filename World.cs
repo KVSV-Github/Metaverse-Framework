@@ -1,44 +1,72 @@
 using System;
 using System.IO;
 using System.Collections.Generic;
+using Newtonsoft.Json;
+using System.Dynamic;
 
 namespace KVSV.Metaverse
 {
-    public class World {
+    public class World
+    {
         public Dictionary<Guid, Entity> Entities = new();
+        public dynamic Components = new ExpandoObject();
+        public List<Script> scripts = new(); 
 
-        private List<Script> scripts = new();
-        private const string scriptsPath = "Scripts";
-    
-        public World() {
+        public World()
+        {
+            ScanComponents();
             ScanScripts();
         }
-        
-        public Entity CreateEntity(List<Component> components) {
+
+        public Entity CreateEntity(List<dynamic> components)
+        {
             Entity e = new(components);
             Entities.Add(e.Id, e);
 
             return e;
         }
 
-        public void Update(float deltaTime) {
-            foreach(Script s in scripts) {
+        public void Update(float deltaTime)
+        {
+            foreach (Script s in scripts)
+            {
                 s.Update(deltaTime);
             }
         }
 
-        public Entity GetEntity(Guid id) {
+        public void Start()
+        {
+            foreach (Script s in scripts)
+            {
+                s.Start();
+            }
+        }
+
+        public Entity GetEntity(Guid id)
+        {
             return Entities[id];
         }
 
-        private void ScanScripts() {
-            DirectoryInfo d = new(scriptsPath);
-            foreach(var file in d.GetFiles("*.lua")) {
-                Console.WriteLine(file.FullName);
+        public void ScanScripts()
+        {
+            DirectoryInfo d = new(Directory.GetCurrentDirectory() + "\\Scripts");
+            foreach (var file in d.GetFiles("*.lua"))
+            {
                 Script s = new(file.FullName);
+                s.state["Components"] = Components;
                 scripts.Add(s);
             }
         }
-        
+
+        public void ScanComponents()
+        {
+            DirectoryInfo d = new(Directory.GetCurrentDirectory() + "\\Components");
+            foreach (var file in d.GetFiles("*.cpt"))
+            {
+                string source = File.ReadAllText(file.FullName);
+                dynamic obj = ComponentConvert.Deserialize(source);
+                ((IDictionary<string, object>)Components).Add(obj.Id, obj);
+            }
+        }
     }
 }

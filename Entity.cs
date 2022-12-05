@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 
 namespace KVSV.Metaverse
@@ -7,36 +8,34 @@ namespace KVSV.Metaverse
     public class Entity
     {
         public Guid Id { get; }
-        private Dictionary<Type, Component> Components = new();
+        private Dictionary<string, dynamic> Components = new();
 
-        public Entity(List<Component> components) {
+        public Entity(List<dynamic> components) {
             Id = new();
-            foreach(Component c in components) {
-                Components.Add(c.GetType(), c);
+            foreach(dynamic c in components) {
+                Components.Add(c.id, c);
             }
         }
-
-        // Archetypes solve need for this
         
-        public Component AddComponent(Component component) {
+        public dynamic AddComponent(dynamic component) {
             try
             {
-                Components.Add(component.GetType(), component);
+                Components.Add(component.id, component);
                 return component;
             }
             catch(ArgumentException)
             {
-                return GetComponent(component.GetType());
+                return GetComponent(component.id);
             }
         }
 
-        public bool RemoveComponent(Component component) {
-            return Components.Remove(component.GetType());
+        public bool RemoveComponent(string componentId) {
+            return Components.Remove(componentId);
         }
 
-        public Component GetComponent(Type componentType) {
-            Component c;
-            Components.TryGetValue(componentType, out c);
+        public dynamic GetComponent(string componentId) {
+            dynamic c;
+            Components.TryGetValue(componentId, out c);
             return c;
         }
     }
