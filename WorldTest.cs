@@ -10,17 +10,9 @@ namespace KVSV.MetaverseTests
         World w = new();
 
         [TestMethod]
-        public void ScanComponentsTest()
-        {
-            Assert.IsNotNull(w.Components.Transform);
-            Console.Write(w.Components.Transform.Id);
-        }
-
-        [TestMethod]
         public void ScanScriptsTest()
         {
             Assert.IsNotNull(w.scripts[0]);
-            Console.WriteLine(w.scripts[0].code);
         }
 
         [TestMethod]
