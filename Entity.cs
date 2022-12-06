@@ -1,41 +1,39 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Dynamic;
-using System.Linq;
 
 namespace KVSV.Metaverse
 {
     public class Entity
     {
         public Guid Id { get; }
-        private Dictionary<string, dynamic> Components = new();
+        private Dictionary<Type, IComponent> Components = new();
 
-        public Entity(List<dynamic> components) {
+        public Entity(List<IComponent> components) {
             Id = new();
-            foreach(dynamic c in components) {
-                Components.Add(c.id, c);
+            foreach(IComponent c in components) {
+                Components.Add(c.GetType(), c);
             }
         }
         
-        public dynamic AddComponent(dynamic component) {
+        public IComponent AddComponent(IComponent component) {
             try
             {
-                Components.Add(component.id, component);
+                Components.Add(component.GetType(), component);
                 return component;
             }
             catch(ArgumentException)
             {
-                return GetComponent(component.id);
+                return GetComponent(component.GetType());
             }
         }
 
-        public bool RemoveComponent(string componentId) {
-            return Components.Remove(componentId);
+        public bool RemoveComponent(Type componentType) {
+            return Components.Remove(componentType);
         }
 
-        public dynamic GetComponent(string componentId) {
-            dynamic c;
-            Components.TryGetValue(componentId, out c);
+        public IComponent GetComponent(Type componentType) {
+            IComponent c;
+            Components.TryGetValue(componentType, out c);
             return c;
         }
     }

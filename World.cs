@@ -1,24 +1,18 @@
 using System;
-using System.IO;
 using System.Collections.Generic;
-using Newtonsoft.Json;
-using System.Dynamic;
+using System.Reflection;
+using System.Linq;
 
 namespace KVSV.Metaverse
 {
+    
+
     public class World
     {
         public Dictionary<Guid, Entity> Entities = new();
-        public dynamic Components = new ExpandoObject();
-        public List<Script> scripts = new(); 
+        public List<IScript> scripts = new(); 
 
-        public World()
-        {
-            ScanComponents();
-            ScanScripts();
-        }
-
-        public Entity CreateEntity(List<dynamic> components)
+        public Entity CreateEntity(List<IComponent> components)
         {
             Entity e = new(components);
             Entities.Add(e.Id, e);
@@ -28,7 +22,7 @@ namespace KVSV.Metaverse
 
         public void Update(float deltaTime)
         {
-            foreach (Script s in scripts)
+            foreach (IScript s in scripts)
             {
                 s.Update(deltaTime);
             }
@@ -36,7 +30,7 @@ namespace KVSV.Metaverse
 
         public void Start()
         {
-            foreach (Script s in scripts)
+            foreach (IScript s in scripts)
             {
                 s.Start();
             }
@@ -47,25 +41,14 @@ namespace KVSV.Metaverse
             return Entities[id];
         }
 
-        public void ScanScripts()
-        {
-            DirectoryInfo d = new(Directory.GetCurrentDirectory() + "\\Scripts");
-            foreach (var file in d.GetFiles("*.lua"))
-            {
-                Script s = new(file.FullName);
-                s.state["Components"] = Components;
-                scripts.Add(s);
-            }
-        }
+        public void LoadAssembly(string assembly) {
+            Assembly loadedAssembly =  Assembly.LoadFrom(assembly);
 
-        public void ScanComponents()
-        {
-            DirectoryInfo d = new(Directory.GetCurrentDirectory() + "\\Components");
-            foreach (var file in d.GetFiles("*.cpt"))
-            {
-                string source = File.ReadAllText(file.FullName);
-                dynamic obj = ComponentConvert.Deserialize(source);
-                ((IDictionary<string, object>)Components).Add(obj.Id, obj);
+            Type scriptType = typeof(IScript);
+
+            foreach(Type script in AssemblyTypeLoader.GetLoadableTypes(loadedAssembly).Where(scriptType.IsAssignableFrom).ToList()) {
+                IScript scriptObject = (IScript)Activator.CreateInstance(script);
+                scripts.Add(scriptObject);
             }
         }
     }
