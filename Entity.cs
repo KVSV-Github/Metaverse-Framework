@@ -6,12 +6,13 @@ namespace KVSV.Metaverse
     public class Entity
     {
         public Guid Id { get; }
-        private Dictionary<Type, IComponent> Components = new();
+        private Dictionary<Type, IComponent> Components { get; }
 
         public Entity(List<IComponent> components) {
             Id = new();
-            foreach(IComponent c in components) {
-                Components.Add(c.GetType(), c);
+            Components = new();
+            foreach(IComponent component in components) {
+                Components.Add(component.GetType(), component);
             }
         }
         
@@ -32,9 +33,9 @@ namespace KVSV.Metaverse
         }
 
         public IComponent GetComponent(Type componentType) {
-            IComponent c;
-            Components.TryGetValue(componentType, out c);
-            return c;
+            IComponent component;
+            Components.TryGetValue(componentType, out component);
+            return component;
         }
     }
 }

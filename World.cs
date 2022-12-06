@@ -9,30 +9,35 @@ namespace KVSV.Metaverse
 
     public class World
     {
-        public Dictionary<Guid, Entity> Entities = new();
-        public List<IScript> scripts = new(); 
+        public Dictionary<Guid, Entity> Entities { get; }
+        public List<IScript> Scripts { get; }
+
+        public World() {
+            Entities = new();
+            Scripts = new();
+        }
 
         public Entity CreateEntity(List<IComponent> components)
         {
-            Entity e = new(components);
-            Entities.Add(e.Id, e);
+            Entity entity = new(components);
+            Entities.Add(entity.Id, entity);
 
-            return e;
+            return entity;
         }
 
         public void Update(float deltaTime)
         {
-            foreach (IScript s in scripts)
+            foreach (IScript script in Scripts)
             {
-                s.Update(deltaTime);
+                script.Update(deltaTime);
             }
         }
 
         public void Start()
         {
-            foreach (IScript s in scripts)
+            foreach (IScript script in Scripts)
             {
-                s.Start();
+                script.Start();
             }
         }
 
@@ -48,7 +53,7 @@ namespace KVSV.Metaverse
 
             foreach(Type script in AssemblyTypeLoader.GetLoadableTypes(loadedAssembly).Where(scriptType.IsAssignableFrom).ToList()) {
                 IScript scriptObject = (IScript)Activator.CreateInstance(script);
-                scripts.Add(scriptObject);
+                Scripts.Add(scriptObject);
             }
         }
     }

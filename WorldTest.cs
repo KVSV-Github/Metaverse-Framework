@@ -1,5 +1,4 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 using KVSV.Metaverse;
 
 namespace KVSV.MetaverseTests
@@ -7,12 +6,17 @@ namespace KVSV.MetaverseTests
     [TestClass]
     public class WorldTest
     {
-        World w = new();
+        private World world;
+
+        [TestInitialize]
+        public void Init() {
+            world = new();
+        }
 
         [TestMethod]
         public void ScanScriptsTest()
         {
-            Assert.IsNotNull(w.scripts[0]);
+            Assert.IsNotNull(world.Scripts[0]);
         }
 
         [TestMethod]
@@ -20,14 +24,14 @@ namespace KVSV.MetaverseTests
         {
             for (int i = 1; i <= 10; i++)
             {
-                w.Update(-1f);
+                world.Update(-1f);
             }
         }
 
         [TestMethod]
         public void StartTest()
         {
-            w.Start();
+            world.Start();
         }
     }
 }
