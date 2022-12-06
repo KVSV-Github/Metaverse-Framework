@@ -4,7 +4,7 @@ on:
     branches:
      - main
 jobs:
-  publish:
+    publish:
     name: build, pack and publish
     runs-on: windows-latest
     steps:
@@ -13,22 +13,31 @@ jobs:
         with:
           dotnet-version: '6.0.x'
           
+      - name: Install GitVersion
+        uses: gittools/actions/gitversion/setup@v0.9.7
+        with:
+            versionSpec: '5.x'
+          
       - name: checkout repo
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
         
-     # - name: Conventional commits changelog
-      #  uses: TriPSs/conventional-changelog-action@v3
-       # id: semver
-        #with:
-         # github-token: ${{ secrets.github_token }}
+      - name: Determine version
+        id: gitversion
+        uses: gittools/actions/gitversion/execute@v0.9.7
+        with:
+            useConfigFile: true
+            configFilePath: ./.github/gitversion.yml
+            
+      - name: Restore Dependencies
+        run: dotnet restore
           
-      - name: build
-        run: dotnet build -c Release
+      - name: Build
+        run: dotnet build --configuration release /p:Version=${{ steps.gitversion.outputs.AssemblySemVer }} /p:AssemblyVersion=${{ steps.gitversion.outputs.AssemblySemVer }} /p:InformationalVersion=${{ steps.gitversion.outputs.InformationalVersion }} --no-restore
         
-      #- name: pack
-       # run: dotnet pack -c Release --property:Version=${{ steps.semver.outputs.version }}
+      - name: pack
+        run: dotnet pack --configuration release -o:package /p:PackageVersion=${{ steps.gitversion.outputs.AssemblySemVer }}
         
-      #- name: publish
-       # run: dotnet nuget push **/*.nupkg -n -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
+      - name: publish
+        run: dotnet nuget push **/*.nupkg -n -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
