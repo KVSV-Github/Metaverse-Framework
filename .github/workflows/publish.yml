@@ -37,7 +37,7 @@ jobs:
         run: dotnet build --configuration release /p:Version=${{ steps.gitversion.outputs.AssemblySemVer }} /p:AssemblyVersion=${{ steps.gitversion.outputs.AssemblySemVer }} /p:InformationalVersion=${{ steps.gitversion.outputs.InformationalVersion }} --no-restore
         
       - name: pack
-        run: dotnet pack --configuration release -o:package /p:PackageVersion=${{ steps.gitversion.outputs.AssemblySemVer }}
+        run: dotnet pack --configuration release -o:package --no-build --no-restore /p:PackageVersion=${{ steps.gitversion.outputs.AssemblySemVer }}
         
       - name: publish
         run: dotnet nuget push **/*.nupkg -n -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
