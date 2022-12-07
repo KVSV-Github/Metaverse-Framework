@@ -5,7 +5,7 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <RootNamespace>KVSV.Metaverse</RootNamespace>
     <AssemblyName>Metaverse</AssemblyName>
-    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Title>Metaverse</Title>
     <Authors>robertkvasov</Authors>
     <Description>Robert Kvasov's Metaverse framework</Description>
