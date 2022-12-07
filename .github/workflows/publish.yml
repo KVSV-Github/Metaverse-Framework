@@ -29,15 +29,12 @@ jobs:
         with:
             useConfigFile: true
             configFilePath: ./.github/gitversion.yml
-            
-      - name: Restore Dependencies
-        run: dotnet restore
           
       - name: Build
-        run: dotnet build --configuration release /p:Version=${{ steps.gitversion.outputs.AssemblySemVer }} /p:AssemblyVersion=${{ steps.gitversion.outputs.AssemblySemVer }} /p:InformationalVersion=${{ steps.gitversion.outputs.InformationalVersion }} --no-restore
+        run: dotnet build --configuration release /p:Version=${{ steps.gitversion.outputs.AssemblySemVer }} /p:AssemblyVersion=${{ steps.gitversion.outputs.AssemblySemVer }} /p:InformationalVersion=${{ steps.gitversion.outputs.InformationalVersion }}
         
       - name: pack
-        run: dotnet pack --configuration release -o:package --no-build --no-restore /p:PackageVersion=${{ steps.gitversion.outputs.AssemblySemVer }}
+        run: dotnet pack -o:package --no-build --no-restore /p:PackageVersion=${{ steps.gitversion.outputs.AssemblySemVer }}
         
       - name: publish
         run: dotnet nuget push **/*.nupkg -n -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
