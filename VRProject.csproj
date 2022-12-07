@@ -10,9 +10,10 @@
     <Authors>robertkvasov</Authors>
     <Description>Robert Kvasov's Metaverse framework</Description>
     <Copyright>GNU GPLv3</Copyright>
-    <PackageProjectUrl>https://github.com/KVSV-Github/VRProject</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/KVSV-Github/VRProject</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/KVSV-Github/Metaverse-Framework</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/KVSV-Github/Metaverse-Framework</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
+    <IsPackable>true</IsPackable>
     <NeutralLanguage>en-GB</NeutralLanguage>
     <PackageLicenseFile>LICENCE.txt</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
