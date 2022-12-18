@@ -6,6 +6,7 @@ namespace KVSV.Metaverse
     public class Entity
     {
         public Guid Id { get; }
+<<<<<<< HEAD
         private Dictionary<Type, IComponent> Components { get; }
 
         public Entity(List<IComponent> components) {
@@ -13,6 +14,14 @@ namespace KVSV.Metaverse
             Components = new();
             foreach(IComponent component in components) {
                 Components.Add(component.GetType(), component);
+=======
+        private Dictionary<Type, IComponent> Components = new Dictionary<Type, IComponent>();
+
+        public Entity(List<IComponent> components) {
+            Id = Guid.NewGuid();
+            foreach(IComponent c in components) {
+                Components.Add(c.GetType(), c);
+>>>>>>> compatibility-.netcore2.1
             }
         }
         
