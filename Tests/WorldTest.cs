@@ -10,7 +10,7 @@ namespace KVSV.MetaverseTests
 
         [TestInitialize]
         public void Init() {
-            world = new();
+            world = new World();
         }
 
         [TestMethod]

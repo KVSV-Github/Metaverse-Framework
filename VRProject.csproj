@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>Library</OutputType>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
     <RootNamespace>KVSV.Metaverse</RootNamespace>
     <AssemblyName>Metaverse</AssemblyName>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>

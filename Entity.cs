@@ -9,8 +9,8 @@ namespace KVSV.Metaverse
         private Dictionary<Type, IComponent> Components { get; }
 
         public Entity(List<IComponent> components) {
-            Id = new();
-            Components = new();
+            Id = new Guid();
+            Components = new Dictionary<Type, IComponent>();
             foreach(IComponent component in components) {
                 Components.Add(component.GetType(), component);
             }

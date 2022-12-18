@@ -13,13 +13,13 @@ namespace KVSV.Metaverse
         public List<IScript> Scripts { get; }
 
         public World() {
-            Entities = new();
-            Scripts = new();
+            Entities = new Dictionary<Guid, Entity>();
+            Scripts = new List<IScript>();
         }
 
         public Entity CreateEntity(List<IComponent> components)
         {
-            Entity entity = new(components);
+            Entity entity = new Entity(components);
             Entities.Add(entity.Id, entity);
 
             return entity;
