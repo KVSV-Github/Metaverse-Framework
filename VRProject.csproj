@@ -6,9 +6,9 @@
     <RootNamespace>KVSV.Metaverse</RootNamespace>
     <AssemblyName>Metaverse</AssemblyName>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Title>Metaverse</Title>
+    <Title>Metaverse-Compatibility</Title>
     <Authors>robertkvasov</Authors>
-    <Description>Robert Kvasov's Metaverse framework</Description>
+    <Description>Robert Kvasov's Metaverse framework for .Net Core 2.1</Description>
     <Copyright>GNU GPLv3</Copyright>
     <PackageProjectUrl>https://github.com/KVSV-Github/Metaverse-Framework</PackageProjectUrl>
     <RepositoryUrl>https://github.com/KVSV-Github/Metaverse-Framework</RepositoryUrl>
@@ -24,17 +24,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="bin\Release\net6.0-windows\Components\PointLight.cpt" />
-    <None Include="bin\Release\net6.0-windows\Components\Transform.cpt" />
-    <None Include="bin\Release\net6.0-windows\Scripts\test.lua" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.4.0" />
     <PackageReference Include="MSTest.TestAdapter" Version="2.2.10" />
     <PackageReference Include="MSTest.TestFramework" Version="2.2.10" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
-    <PackageReference Include="NLua" Version="1.6.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -42,10 +34,6 @@
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="obj\Release\net6.0-windows\" />
   </ItemGroup>
 
 </Project>
