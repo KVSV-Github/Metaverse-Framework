@@ -4,7 +4,7 @@
     <OutputType>Library</OutputType>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <RootNamespace>KVSV.Metaverse</RootNamespace>
-    <AssemblyName>Metaverse</AssemblyName>
+    <AssemblyName>Metaverse-Compatibility</AssemblyName>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Title>Metaverse-Compatibility</Title>
     <Authors>robertkvasov</Authors>
