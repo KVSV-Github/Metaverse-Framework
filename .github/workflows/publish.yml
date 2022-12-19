@@ -8,30 +8,18 @@ jobs:
     name: build, pack and publish
     runs-on: windows-latest
     steps:
-      - name: Set up .NET 6
+      - name: Set up .NET Core 2.1
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: '2.1'
-          
-      - name: Install GitVersion
-        uses: gittools/actions/gitversion/setup@v0.9.7
-        with:
-            versionSpec: '5.x'
           
       - name: checkout repo
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-        
-      - name: Determine version
-        id: gitversion
-        uses: gittools/actions/gitversion/execute@v0.9.7
-        with:
-            useConfigFile: true
-            configFilePath: ./.github/gitversion.yml
           
       - name: Build
-        run: dotnet build --configuration release /p:Version=${{ steps.gitversion.outputs.AssemblySemVer }} /p:AssemblyVersion=${{ steps.gitversion.outputs.AssemblySemVer }} /p:InformationalVersion=${{ steps.gitversion.outputs.InformationalVersion }}
+        run: dotnet build --configuration release /p:Version=1.0.0 /p:AssemblyVersion=1.0.0
         
       - name: publish
         run: dotnet nuget push **/*.nupkg -n -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
