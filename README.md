@@ -1,4 +1,4 @@
-
+[![NuGet Package](https://github.com/KVSV-Github/Metaverse-Framework/actions/workflows/publish.yml/badge.svg)](https://github.com/KVSV-Github/Metaverse-Framework/actions/workflows/publish.yml)
 # Metaverse Framwork
 
 The Metaverse project allows people of any technical ability to pick up and create virtual worlds using free and open-source software. However, to develop this software, one must utilize the Metaverse framework, which is located in this repository.
