@@ -21,5 +21,8 @@ jobs:
       - name: Build
         run: dotnet build --configuration release /p:Version=1.0.0 /p:AssemblyVersion=1.0.0
         
+      - name: Add API Key
+        run: nuget setapikey ${{ secrets.NUGET_API_KEY }}
+        
       - name: publish
         run: dotnet nuget push **/*.nupkg -n --api-key ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
